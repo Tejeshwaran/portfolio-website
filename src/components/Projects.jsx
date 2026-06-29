@@ -6,7 +6,7 @@ function Projects() {
   const webProjects = [
     {
       title: "Portfolio Website",
-      tech: "React • Tailwind CSS",
+      tech: "React • Vite • Tailwind CSS",
       description:
         "A modern personal portfolio website with responsive design, smooth UI, and dark theme.",
       status: "Completed",
@@ -54,25 +54,29 @@ function Projects() {
   const projects = category === "web" ? webProjects : dataProjects;
 
   return (
-    <section id="projects" className="relative min-h-screen bg-black text-white py-24 px-6 overflow-hidden">
+    <section
+      id="projects"
+      className="relative min-h-screen bg-black text-white py-20 md:py-24 px-6 overflow-hidden"
+    >
       {/* Background circles */}
-      <div className="absolute w-72 h-72 bg-red-600 rounded-full right-32 top-64 blur-3xl opacity-20"></div>
-      <div className="absolute w-32 h-32 bg-red-900 rounded-full right-24 top-32 blur-2xl opacity-30"></div>
-      <div className="absolute w-52 h-52 bg-red-900 rounded-full -left-20 bottom-0 blur-3xl opacity-30"></div>
+      <div className="absolute w-48 h-48 md:w-72 md:h-72 bg-red-600 rounded-full right-10 md:right-32 top-64 blur-3xl opacity-20"></div>
+      <div className="absolute w-24 h-24 md:w-32 md:h-32 bg-red-900 rounded-full right-8 md:right-24 top-32 blur-2xl opacity-30"></div>
+      <div className="absolute w-40 h-40 md:w-52 md:h-52 bg-red-900 rounded-full -left-20 bottom-0 blur-3xl opacity-30"></div>
 
       <div className="relative max-w-6xl mx-auto">
-        <div className="text-center mb-14">
+        <div className="text-center mb-12 md:mb-14">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Featured <span className="text-red-500">Projects</span>
           </h2>
 
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            I build modern web applications and transform raw data into meaningful business insights.
+          <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
+            I build modern web applications and transform raw data into
+            meaningful business insights.
           </p>
         </div>
 
         {/* Category buttons */}
-        <div className="flex justify-center gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
           <button
             onClick={() => setCategory("web")}
             className={`px-6 py-3 rounded-full font-semibold transition duration-300 ${
@@ -97,22 +101,24 @@ function Projects() {
         </div>
 
         {/* Project cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="bg-gray-1000 p-6 rounded-2xl shadow-lg border border-gray-800 hover:-translate-y-2 hover:border-red-500 hover:shadow-blue-500/20 transition-all duration-300 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-6 hover:border-red-500 hover:-translate-y-2 transition duration-300"
+              className="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-5 md:p-6 hover:border-red-500 hover:-translate-y-2 transition duration-300"
             >
-              <div className="h-40 bg-gradient-to-br from-red-900 to-black rounded-xl mb-6 flex items-center justify-center">
-                <span className="text-5xl">
+              <div className="h-32 md:h-40 bg-gradient-to-br from-red-900 to-black rounded-xl mb-6 flex items-center justify-center">
+                <span className="text-4xl md:text-5xl">
                   {category === "web" ? "💻" : "📊"}
                 </span>
               </div>
 
-              <div className="flex justify-between items-center mb-3">
-                <h3 className="text-xl font-bold">{project.title}</h3>
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-3">
+                <h3 className="text-lg md:text-xl font-bold">
+                  {project.title}
+                </h3>
 
-                <span className="text-xs bg-red-600/20 text-red-400 px-3 py-1 rounded-full">
+                <span className="text-xs bg-red-600/20 text-red-400 px-3 py-1 rounded-full w-fit">
                   {project.status}
                 </span>
               </div>
@@ -123,12 +129,12 @@ function Projects() {
                 {project.description}
               </p>
 
-              <div className="flex gap-4">
-                <button className="text-sm bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700 transition">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button className="px-6 py-3 bg-blue-600 rounded-full text-white font-semibold hover:bg-blue-700 hover:scale-105 transition-all duration-300 text-sm bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700 transition">
                   Live Demo
                 </button>
 
-                <button className="text-sm border border-red-600 px-4 py-2 rounded-lg hover:bg-red-600 transition">
+                <button className="px-6 py-3 bg-blue-600 rounded-full text-white font-semibold hover:bg-blue-700 hover:scale-105 transition-all duration-300text-sm border border-red-600 px-4 py-2 rounded-lg hover:bg-red-600 transition">
                   GitHub
                 </button>
               </div>
