@@ -1,4 +1,32 @@
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+
 function Contact() {
+  const form = useRef();
+  const [status, setStatus] = useState("");
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_v56hjlq",
+        "template_5u96atw",
+        form.current,
+        "pA2K3rxlvtwtiv0lX"
+      )
+      .then(
+        () => {
+          setStatus("Message sent successfully!");
+          form.current.reset();
+        },
+        (error) => {
+          console.log("EmailJS error:", error);
+          setStatus("Something went wrong. Please try again.");
+        }
+      );
+  };
+
   return (
     <section id="contact" className="min-h-screen bg-black text-white px-6 py-20">
       <div className="max-w-5xl mx-auto text-center">
@@ -24,26 +52,34 @@ function Contact() {
 
             <div>
               <h3 className="text-xl font-bold text-red-600">LinkedIn</h3>
-              <p className="text-gray-300">https://www.linkedin.com/in/tejeshwaran-manoharan-4076b7201</p>
+              <p className="text-gray-300 break-words">
+                https://www.linkedin.com/in/tejeshwaran-manoharan-4076b7201
+              </p>
             </div>
           </div>
 
-          <form className="space-y-4">
+          <form ref={form} onSubmit={sendEmail} className="space-y-4">
             <input
               type="text"
+              name="user_name"
               placeholder="Your Name"
+              required
               className="w-full p-3 rounded bg-gray-900 border border-gray-700 outline-none focus:border-red-600"
             />
 
             <input
               type="email"
+              name="user_email"
               placeholder="Your Email"
+              required
               className="w-full p-3 rounded bg-gray-900 border border-gray-700 outline-none focus:border-red-600"
             />
 
             <textarea
+              name="message"
               placeholder="Your Message"
               rows="5"
+              required
               className="w-full p-3 rounded bg-gray-900 border border-gray-700 outline-none focus:border-red-600"
             ></textarea>
 
@@ -53,6 +89,8 @@ function Contact() {
             >
               Send Message
             </button>
+
+            {status && <p className="text-gray-300">{status}</p>}
           </form>
         </div>
       </div>
