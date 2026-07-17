@@ -30,21 +30,21 @@ function Projects() {
   const dataProjects = [
     {
       title: "Sales Dashboard",
-      tech: "Excel • Power BI • SQL",
+      tech: "Python • Tableau",
       description:
         "An interactive dashboard to analyze sales performance, revenue, and business KPIs.",
       status: "Completed",
     },
     {
       title: "Customer Analysis",
-      tech: "Tableau • Excel",
+      tech: "Excel • Tableau",
       description:
         "A data analytics project focused on customer behavior, trends, and segmentation.",
       status: "Coming Soon",
     },
     {
       title: "Marketing Dashboard",
-      tech: "Power BI • Google Analytics",
+      tech: "SQL • Python",
       description:
         "A dashboard for tracking marketing performance, website traffic, and conversions.",
       status: "Coming Soon",

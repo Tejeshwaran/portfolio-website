@@ -60,7 +60,9 @@ function Navbar() {
 
 
         {/* Contact Button Desktop */}
-        <button className="
+        <a
+          href="#contact"
+          className="
           hidden md:block 
           bg-red-600 
           px-8 py-2 
@@ -68,10 +70,10 @@ function Navbar() {
           font-bold 
           hover:bg-red-700 
           transition-all 
-          duration-300
-        ">
-          Contact
-        </button>
+          duration-300"
+        >
+  Contact
+</a>
 
 
 

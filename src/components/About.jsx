@@ -43,9 +43,20 @@ function About() {
               real-world projects.
             </p>
 
-            <button className="bg-red-600 px-8 py-3 rounded-lg font-bold hover:bg-red-700">
+              <a
+                href="#contact"
+                className="
+                inline-block
+                bg-red-600 
+                px-8 py-3 
+                rounded-lg 
+                font-bold 
+                hover:bg-red-700
+                transition-all
+                duration-300"
+              >
               Contact Me
-            </button>
+              </a>
           </div>
         </div>
       </div>
