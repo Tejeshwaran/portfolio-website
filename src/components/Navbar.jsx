@@ -38,10 +38,10 @@ function Navbar() {
 
           <li>
             <a 
-              href="#service" 
+              href="#skills" 
               className="hover:text-red-500 transition-all duration-300"
             >
-              Service
+              Skills
             </a>
           </li>
 

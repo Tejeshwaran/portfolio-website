@@ -1,55 +1,62 @@
 import { useState } from "react";
+import portfolioImage from "../assets/portfolio_website.png"; 
 
 function Projects() {
   const [category, setCategory] = useState("web");
 
   const webProjects = [
-    {
-      title: "Portfolio Website",
-      tech: "React • Vite • Tailwind CSS",
-      description:
-        "A modern personal portfolio website with responsive design, smooth UI, and dark theme.",
-      status: "Completed",
-    },
-    {
-      title: "E-Commerce Store",
-      tech: "Vue.js • CSS",
-      description:
-        "An online shopping website with product cards, cart system, and clean user interface.",
-      status: "Coming Soon",
-    },
-    {
-      title: "Social Media App",
-      tech: "React • CSS",
-      description:
-        "A social media platform with posts, profiles, likes, and user-friendly design.",
-      status: "Coming Soon",
-    },
-  ];
+  {
+    title: "Portfolio Website",
+    image: portfolioImage,
+    tech: "React • Vite • Tailwind CSS",
+    description:
+      "A modern personal portfolio website with responsive design, smooth UI, and dark theme.",
+    status: "Completed",
+  },
+  {
+    title: "E-Commerce Store",
+    image: "/images/ecommerce.png", // (add image)
+    tech: "Vue.js • CSS",
+    description:
+      "An online shopping website with product cards, cart system, and clean user interface.",
+    status: "Coming Soon",
+  },
+  {
+    title: "Social Media App",
+    image: "/images/social-media.png", // (add image)
+    tech: "React • CSS",
+    description:
+      "A social media platform with posts, profiles, likes, and user-friendly design.",
+    status: "Coming Soon",
+  },
+];
 
   const dataProjects = [
-    {
-      title: "Sales Dashboard",
-      tech: "Python • Tableau",
-      description:
-        "An interactive dashboard to analyze sales performance, revenue, and business KPIs.",
-      status: "Completed",
-    },
-    {
-      title: "Customer Analysis",
-      tech: "Excel • Tableau",
-      description:
-        "A data analytics project focused on customer behavior, trends, and segmentation.",
-      status: "Coming Soon",
-    },
-    {
-      title: "Marketing Dashboard",
-      tech: "SQL • Python",
-      description:
-        "A dashboard for tracking marketing performance, website traffic, and conversions.",
-      status: "Coming Soon",
-    },
-  ];
+  {
+    title: "Sales Dashboard",
+    image: "/images/sales-dashboard.png", // (add image)
+    tech: "Python • Tableau",
+    description:
+      "An interactive dashboard to analyze sales performance, revenue, and business KPIs.",
+    status: "Completed",
+  },
+  {
+    title: "Customer Analysis",
+    image: "/images/customer-analysis.png", // (add image)
+    tech: "Excel • Tableau",
+    description:
+      "A data analytics project focused on customer behavior, trends, and segmentation.",
+    status: "Coming Soon",
+  },
+  {
+    title: "Marketing Dashboard",
+    image: "/images/marketing-dashboard.png", // (add image)
+    tech: "SQL • Python",
+    description:
+      "A dashboard for tracking marketing performance, website traffic, and conversions.",
+    status: "Coming Soon",
+  },
+];
 
   const projects = category === "web" ? webProjects : dataProjects;
 
@@ -107,10 +114,12 @@ function Projects() {
               key={index}
               className="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-5 md:p-6 hover:border-red-500 hover:-translate-y-2 transition duration-300"
             >
-              <div className="h-32 md:h-40 bg-gradient-to-br from-red-900 to-black rounded-xl mb-6 flex items-center justify-center">
-                <span className="text-4xl md:text-5xl">
-                  {category === "web" ? "💻" : "📊"}
-                </span>
+              <div className="h-32 md:h-40 rounded-xl mb-6 overflow-hidden bg-gradient-to-br from-red-900 to-black">
+                <img
+                  src={project.image} // (add image)
+                  alt={project.title}
+                  className="w-full h-full object-cover hover:scale-105 transition duration-300"
+                />
               </div>
 
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-3">
