@@ -11,7 +11,7 @@ import {
 const languages = {
   german: {
     name: "GERMAN",
-    level: "B1",
+    level: "B2",
     description: "Intermediate",
     type: "main",
     skills: [

@@ -18,7 +18,7 @@ function Navbar() {
 
           <li>
             <a 
-              href="/" 
+              href="#hero" 
               className="hover:text-red-500 transition-all duration-300"
             >
               Home
@@ -46,12 +46,20 @@ function Navbar() {
           </li>
 
 
-          <li>
+          {/* <li>
             <a 
               href="#projects" 
               className="hover:text-red-500 transition-all duration-300"
             >
               Projects
+            </a>
+          </li> */}
+          <li>
+            <a 
+              href="#languages" 
+              className="hover:text-red-500 transition-all duration-300"
+            >
+              Languages
             </a>
           </li>
 

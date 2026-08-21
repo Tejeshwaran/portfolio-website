@@ -3,7 +3,7 @@ import heroImage from "../assets/hero.png";
 
 function Hero() {
   return (
-    <section className="min-h-screen bg-black text-white relative overflow-hidden">
+    <section id="hero" className="min-h-screen bg-black text-white relative overflow-hidden">
       <Navbar />
 
       {/* Background Circles */}
@@ -34,20 +34,11 @@ function Hero() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className="bg-red-600 px-8 py-3 rounded-lg font-bold hover:bg-red-700 w-full sm:w-auto">
+              <button className="bg-red-600 m-2 px-14 py-3 rounded-lg font-bold hover:bg-red-700 w-full sm:w-auto">
                 LinkedIn
               </button>
             </a>
 
-            <a
-              href="/Lebenslauf_Tejeshwaran_Manoharan.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="bg-red-600 px-8 py-3 rounded-lg font-bold hover:bg-red-700 w-full sm:w-auto">
-                Resume
-              </button>
-            </a>
           </div>
         </div>
 
@@ -58,7 +49,7 @@ function Hero() {
           <img
             src={heroImage}
             alt="Tejeshwaran"
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[260px] md:w-[420px]"
+            className="absolute w-full h-auto bottom-0 left-1/2 -translate-x-1/2 md:w-[420px]"
           />
         </div>
       </div>

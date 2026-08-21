@@ -45,28 +45,25 @@ function About() {
           <div className="max-w-xl">
 
             <p className="text-2xl md:text-3xl font-semibold leading-snug mb-8">
-              Hi, I'm Tejesh 👋
+               Hello! Tejesh here👋
             </p>
 
             <div className="space-y-6 text-lg md:text-xl text-gray-400 leading-relaxed">
 
               <p>
-                I'm a web developer with a background in data analytics.
-                I enjoy creating clean, responsive websites using modern
-                frontend technologies.
+                I enjoy creating things, solving problems, and turning random ideas into projects that somehow end up working. 
+                For me, development isn’t just about writing code — it’s about taking an idea and asking, “Okay... 
+                how can I make this actually useful?”
               </p>
-
               <p>
-                My experience with Python, Tableau, Power BI, and Excel also
-                allows me to work with data and turn it into meaningful
-                insights.
+                I’m naturally curious, which means I’m always learning something new. Some days I’m building, some days 
+                I’m experimenting, and some days I’m just fighting with a bug that apparently has a personal problem with me.😂
               </p>
-
               <p>
-                I'm continuously improving my skills, learning German, and
-                building real-world projects that help me grow as a developer.
+                Outside of all the screens and keyboards, I’m also learning German 🇩🇪, exploring new ideas, and trying to become a little better than I was yesterday.
+                I don’t have everything figured out yet — and honestly, I think that’s the fun part.
+                Build. Learn. Break things. Fix them. Repeat. 🚀
               </p>
-
             </div>
 
             {/* Button */}
