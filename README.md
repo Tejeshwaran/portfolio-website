@@ -1,21 +1,28 @@
-<<<<<<< HEAD
-# React + Vite
+# Tejeshwaran Manoharan — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A bilingual (English/German) portfolio for web development and data analytics, built with React and Vite.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Use Node.js 20.19+ or 22.12+ (required by the installed Vite version). Run npm install, then npm run dev. Use npm run build for a production build and npm run lint to check the source.
 
-## React Compiler
+## Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- src/components/ — page sections and navigation
+- src/i18n/translations.js — all English and German interface copy
+- src/index.css — layout, visual system, responsive rules, and motion preferences
+- src/assets/ — Pillo icon and retained legacy images (unused by Signal)
+- src/hooks/ — lightweight scroll reveals and reduced-motion handling
+- public/ — résumé and site icon
 
-## Expanding the ESLint configuration
+The Vite base path is set to /portfolio-website/ for GitHub Pages. If deployed at a different path, update base in vite.config.js.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# Portfolio
-This is a portfolio of my career. With this you can understand what I have done until now in my career.
->>>>>>> 971440c8e372e719fa772fc7ba915801d76d7fb8
+The visual direction is Signal: charcoal, warm orange, and a code-drawn dotted hero illustration. The existing React, Vite, Tailwind, and Lucide stack is unchanged.
+
+Pillo is the only featured project. Its description is based on the current Windows source and is marked in development. Add public demo or repository links only when verified URLs are available.
+
+Scroll reveals and the gentle hero movement use native browser APIs, with no animation dependency. They respect reduced-motion settings, retain native scrolling, and leave content visible if animation support is unavailable.
+
+Experience & Education is a scroll-triggered pop-card trial. On sufficiently tall desktop screens, the title appears first, then a sticky stage shows one card at a time as scroll thresholds are crossed. Cards pop in with a short, subtle overshoot and staggered text. Reverse scrolling revisits earlier cards. Narrow/short screens use stacked pop-ins; reduced-motion preferences show a compact, fully visible chronology. No scrolling is intercepted, and there are no new dependencies.
+
+The previous timeline animation is preserved in the local workspace folder `portfolio-before-pop-animation` (with the résumé download already removed). To revert only the animation, restore `Experience.jsx`, `useExperienceMotion.js`, `index.css`, the two `experience.scrollHint` translation values, and this animation note from that snapshot. Do not restore unrelated files or reintroduce the résumé link. The PDF itself remains untouched; only the download option has been removed.

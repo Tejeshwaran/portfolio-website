@@ -1,186 +1,68 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "../i18n/languageContext";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButton = useRef(null);
+  const { t } = useLanguage();
+  useEffect(() => {
+    if (!menuOpen) return;
+    function closeOnEscape(event) {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        menuButton.current?.focus();
+      }
+    }
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [menuOpen]);
+  const links = [
+    { href: "#about", label: t.nav.about },
+    { href: "#projects", label: t.nav.projects },
+    { href: "#skills", label: t.nav.skills },
+    { href: "#experience", label: t.nav.experience },
+  ];
 
   return (
-    <nav className="absolute top-0 left-0 w-full z-50 px-6 md:px-8 py-6 text-white">
-      <div className="max-w-6xl mx-auto flex justify-between items-center">
+    <header className="site-header">
+      <nav className="nav-shell container" aria-label={t.nav.label}>
+        <a className="brand" href="#home" onClick={() => setMenuOpen(false)} aria-label={t.nav.home}>
+          <span className="brand-mark" aria-hidden="true">T<span>.</span></span>
+          <span className="brand-name">Tejeshwaran<span className="brand-dot">.</span></span>
+        </a>
 
-        {/* Logo */}
-        <h1 className="text-3xl font-extrabold">
-          Tejesh<span className="text-red-600">Dev</span>
-        </h1>
-
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-10 font-bold items-center">
-
-          <li>
-            <a 
-              href="#hero" 
-              className="hover:text-red-500 transition-all duration-300"
-            >
-              Home
-            </a>
-          </li>
-
-
-          <li>
-            <a 
-              href="#about" 
-              className="hover:text-red-500 transition-all duration-300"
-            >
-              About
-            </a>
-          </li>
-
-
-          <li>
-            <a 
-              href="#skills" 
-              className="hover:text-red-500 transition-all duration-300"
-            >
-              Skills
-            </a>
-          </li>
-
-
-          {/* <li>
-            <a 
-              href="#projects" 
-              className="hover:text-red-500 transition-all duration-300"
-            >
-              Projects
-            </a>
-          </li> */}
-          <li>
-            <a 
-              href="#languages" 
-              className="hover:text-red-500 transition-all duration-300"
-            >
-              Languages
-            </a>
-          </li>
-
-        </ul>
-
-
-
-        {/* Contact Button Desktop */}
-        <a
-          href="#contact"
-          className="
-          hidden md:block 
-          bg-red-600 
-          px-8 py-2 
-          rounded-lg 
-          font-bold 
-          hover:bg-red-700 
-          transition-all 
-          duration-300"
-        >
-  Contact
-</a>
-
-
-
-        {/* Mobile Burger */}
         <button
-          className="md:hidden text-3xl"
-          onClick={() => setMenuOpen(!menuOpen)}
+          ref={menuButton}
+          className="menu-toggle"
+          type="button"
+          aria-label={menuOpen ? t.nav.closeMenu : t.nav.openMenu}
+          aria-controls="primary-navigation"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
         >
-
-          {menuOpen ? "✕" : "☰"}
-
+          {menuOpen ? <X size={23} /> : <Menu size={23} />}
         </button>
 
-      </div>
-
-
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-
-        <div className="
-          md:hidden 
-          mt-4 
-          bg-black/90 
-          rounded-lg 
-          p-6
-        ">
-
-          <ul className="
-            flex 
-            flex-col 
-            gap-6 
-            font-bold 
-            text-center
-          ">
-
-
-            <li>
-              <a 
-                href="/" 
-                onClick={() => setMenuOpen(false)}
-              >
-                Home
-              </a>
-            </li>
-
-
-            <li>
-              <a 
-                href="#about" 
-                onClick={() => setMenuOpen(false)}
-              >
-                About
-              </a>
-            </li>
-
-
-            <li>
-              <a 
-                href="#service" 
-                onClick={() => setMenuOpen(false)}
-              >
-                Service
-              </a>
-            </li>
-
-
-            <li>
-              <a 
-                href="#projects" 
-                onClick={() => setMenuOpen(false)}
-              >
-                Projects
-              </a>
-            </li>
-
-
+        <div className={"nav-panel" + (menuOpen ? " is-open" : "")} id="primary-navigation">
+          <ul className="nav-links">
+            {links.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>
+              </li>
+            ))}
           </ul>
-
-
-          <button className="
-            w-full 
-            mt-6 
-            bg-red-600 
-            py-3 
-            rounded-lg 
-            font-bold 
-            hover:bg-red-700 
-            transition-all 
-            duration-300
-          ">
-            Contact
-          </button>
-
+          <div className="nav-actions">
+            <LanguageSwitcher />
+            <a className="nav-contact" href="#contact" onClick={() => setMenuOpen(false)}>
+              {t.nav.contact}<ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+          </div>
         </div>
 
-      )}
-
-    </nav>
+      </nav>
+    </header>
   );
 }
 

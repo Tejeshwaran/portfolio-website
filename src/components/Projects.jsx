@@ -1,155 +1,62 @@
-import { useState } from "react";
-import portfolioImage from "../assets/portfolio_website.png"; 
+import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
+import pilloIcon from "../assets/pillo-icon.png";
+import { useLanguage } from "../i18n/languageContext";
+
+const waveform = [12, 19, 29, 17, 36, 49, 31, 56, 42, 64, 48, 34, 53, 39, 62, 45, 28, 48, 34, 22, 38, 26, 16, 12];
 
 function Projects() {
-  const [category, setCategory] = useState("web");
-
-  const webProjects = [
-  {
-    title: "Portfolio Website",
-    image: portfolioImage,
-    tech: "React • Vite • Tailwind CSS",
-    description:
-      "A modern personal portfolio website with responsive design, smooth UI, and dark theme.",
-    status: "Completed",
-  },
-  {
-    title: "E-Commerce Store",
-    image: "/images/ecommerce.png", // (add image)
-    tech: "Vue.js • CSS",
-    description:
-      "An online shopping website with product cards, cart system, and clean user interface.",
-    status: "Coming Soon",
-  },
-  {
-    title: "Social Media App",
-    image: "/images/social-media.png", // (add image)
-    tech: "React • CSS",
-    description:
-      "A social media platform with posts, profiles, likes, and user-friendly design.",
-    status: "Coming Soon",
-  },
-];
-
-  const dataProjects = [
-  {
-    title: "Sales Dashboard",
-    image: "/images/sales-dashboard.png", // (add image)
-    tech: "Python • Tableau",
-    description:
-      "An interactive dashboard to analyze sales performance, revenue, and business KPIs.",
-    status: "Completed",
-  },
-  {
-    title: "Customer Analysis",
-    image: "/images/customer-analysis.png", // (add image)
-    tech: "Excel • Tableau",
-    description:
-      "A data analytics project focused on customer behavior, trends, and segmentation.",
-    status: "Coming Soon",
-  },
-  {
-    title: "Marketing Dashboard",
-    image: "/images/marketing-dashboard.png", // (add image)
-    tech: "SQL • Python",
-    description:
-      "A dashboard for tracking marketing performance, website traffic, and conversions.",
-    status: "Coming Soon",
-  },
-];
-
-  const projects = category === "web" ? webProjects : dataProjects;
+  const { t } = useLanguage();
+  const project = t.projects.items[0];
 
   return (
-    <section
-      id="projects"
-      className="relative min-h-screen bg-black text-white py-20 md:py-24 px-6 overflow-hidden"
-    >
-      {/* Background circles */}
-      <div className="absolute w-48 h-48 md:w-72 md:h-72 bg-red-600 rounded-full right-10 md:right-32 top-64 blur-3xl opacity-20"></div>
-      <div className="absolute w-24 h-24 md:w-32 md:h-32 bg-red-900 rounded-full right-8 md:right-24 top-32 blur-2xl opacity-30"></div>
-      <div className="absolute w-40 h-40 md:w-52 md:h-52 bg-red-900 rounded-full -left-20 bottom-0 blur-3xl opacity-30"></div>
-
-      <div className="relative max-w-6xl mx-auto">
-        <div className="text-center mb-12 md:mb-14">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Featured <span className="text-red-500">Projects</span>
-          </h2>
-
-          <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
-            I build modern web applications and transform raw data into
-            meaningful business insights.
-          </p>
+    <section className="section projects-section" id="projects" aria-labelledby="projects-title">
+      <div className="container">
+        <div className="section-heading-row" data-reveal>
+          <div>
+            <p className="section-kicker"><span>02</span> / {t.projects.kicker}</p>
+            <h2 className="section-title" id="projects-title">{t.projects.title}</h2>
+          </div>
+          <p className="section-description">{t.projects.intro}</p>
         </div>
-
-        {/* Category buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-          <button
-            onClick={() => setCategory("web")}
-            className={`px-6 py-3 rounded-full font-semibold transition duration-300 ${
-              category === "web"
-                ? "bg-red-600 text-white shadow-lg shadow-red-600/40"
-                : "bg-zinc-900 text-gray-300 hover:bg-red-600"
-            }`}
-          >
-            Web Development
-          </button>
-
-          <button
-            onClick={() => setCategory("data")}
-            className={`px-6 py-3 rounded-full font-semibold transition duration-300 ${
-              category === "data"
-                ? "bg-red-600 text-white shadow-lg shadow-red-600/40"
-                : "bg-zinc-900 text-gray-300 hover:bg-red-600"
-            }`}
-          >
-            Data Analytics
-          </button>
-        </div>
-
-        {/* Project cards */}
-        <div className="bg-gray-1000 p-6 rounded-2xl shadow-lg border border-gray-800 hover:-translate-y-2 hover:border-red-500 hover:shadow-blue-500/20 transition-all duration-300 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-zinc-900/80 border border-zinc-800 rounded-2xl p-5 md:p-6 hover:border-red-500 hover:-translate-y-2 transition duration-300"
-            >
-              <div className="h-32 md:h-40 rounded-xl mb-6 overflow-hidden bg-gradient-to-br from-red-900 to-black">
-                <img
-                  src={project.image} // (add image)
-                  alt={project.title}
-                  className="w-full h-full object-cover hover:scale-105 transition duration-300"
-                />
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-3">
-                <h3 className="text-lg md:text-xl font-bold">
-                  {project.title}
-                </h3>
-
-                <span className="text-xs bg-red-600/20 text-red-400 px-3 py-1 rounded-full w-fit">
-                  {project.status}
-                </span>
-              </div>
-
-              <p className="text-red-400 text-sm mb-3">{project.tech}</p>
-
-              <p className="text-gray-400 text-sm mb-6">
-                {project.description}
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3">
-                <button className="px-6 py-3 bg-blue-600 rounded-full text-white font-semibold hover:bg-blue-700 hover:scale-105 transition-all duration-300 text-sm bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700 transition">
-                  Live Demo
-                </button>
-
-                <button className="px-6 py-3 bg-blue-600 rounded-full text-white font-semibold hover:bg-blue-700 hover:scale-105 transition-all duration-300text-sm border border-red-600 px-4 py-2 rounded-lg hover:bg-red-600 transition">
-                  GitHub
-                </button>
-              </div>
+        <article className="project-case" aria-labelledby="pillo-title" data-reveal>
+          <div className="pillo-preview">
+            <div className="pillo-preview-head">
+              <img className="pillo-icon" src={pilloIcon} alt="" width="64" height="64" loading="lazy" />
+              <span className="pillo-wordmark">Pillo</span>
             </div>
-          ))}
-        </div>
+            <p className="pillo-preview-caption">{project.subtitle}</p>
+            <div className="pillo-waveform" aria-hidden="true">
+              {waveform.map((height, index) => (
+                <span key={index} style={{ "--bar-height": `${height}px`, "--bar-index": index }} />
+              ))}
+            </div>
+            <ol className="pillo-flow" aria-label={t.projects.flowLabel}>
+              {t.projects.flow.map((step, index) => (
+                <li key={step}>
+                  <span>{step}</span>
+                  {index < t.projects.flow.length - 1 && <ArrowRight size={14} aria-hidden="true" />}
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div className="project-content">
+            <div className="project-topline"><span>{project.category}</span><span>01</span></div>
+            <h3 id="pillo-title">{project.title}</h3>
+            <span className="pillo-status"><span aria-hidden="true" />{project.status}</span>
+            <p className="project-description">{project.description}</p>
+            <ul className="project-features">
+              {project.features.map((feature) => <li key={feature}>{feature}</li>)}
+            </ul>
+            <div className="project-tags">
+              {project.tech.map((tech) => <span key={tech}>{tech}</span>)}
+            </div>
+            <details className="project-details">
+              <summary>{t.projects.more}<ChevronDown size={17} aria-hidden="true" /></summary>
+              <p>{project.detail}</p>
+            </details>
+          </div>
+        </article>
+        <p className="projects-outro">{t.projects.outro} <a className="text-link" href="#contact">{t.projects.outroLink}<ArrowUpRight size={16} aria-hidden="true" /></a></p>
       </div>
     </section>
   );
