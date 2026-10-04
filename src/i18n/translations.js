@@ -76,7 +76,6 @@ export const translations = {
       workTitle: "Experience",
       educationTitle: "Education",
       work: [
-        { date: "Nov 2025 — Jan 2026", role: "HR & Data Analytics Intern", company: "Gebäudereinigung Glanzgeber", description: "Analyzed employee data in Excel, created KPI dashboards, and supported HR reporting and administrative workflows." },
         { date: "Jul 2022 — Aug 2022", role: "Web Development Intern", company: "HermitCrabs", description: "Built frontend UI components and web applications, and used HubSpot CRM to support marketing and sales processes." },
       ],
       education: [
@@ -180,7 +179,6 @@ export const translations = {
       workTitle: "Berufserfahrung",
       educationTitle: "Ausbildung",
       work: [
-        { date: "Nov 2025 — Jan 2026", role: "Praktikum Personalwesen & Datenanalyse", company: "Gebäudereinigung Glanzgeber", description: "Mitarbeiterdaten mit Excel analysiert, KPI-Dashboards erstellt und HR-Reporting sowie Verwaltungsprozesse unterstützt." },
         { date: "Jul 2022 — Aug 2022", role: "Praktikum Webentwicklung", company: "HermitCrabs", description: "Frontend-Komponenten und Webanwendungen entwickelt sowie HubSpot CRM für Marketing- und Vertriebsprozesse genutzt." },
       ],
       education: [
