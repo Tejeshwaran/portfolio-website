@@ -1,7 +1,7 @@
 import { useId } from "react";
 
 // A scalable dot-matrix drawing. Patterns keep the illustration light without
-// creating thousands of animated elements or loading a portrait image.
+// creating thousands of animated elements.
 export default function SignalPortrait() {
   const id = useId().replaceAll(":", "");
   const dots = id + "-dots";

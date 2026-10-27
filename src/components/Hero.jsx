@@ -1,5 +1,6 @@
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-import SignalPortrait from "./SignalPortrait";
+import PortraitReveal from "./PortraitReveal";
+import portrait from "../assets/portrait-cutout.png";
 import { useLanguage } from "../i18n/languageContext";
 
 function Hero() {
@@ -25,7 +26,7 @@ function Hero() {
         <div className="hero-visual">
           <div className="signal-frame">
             <div className="signal-caption"><span>TM / SIGNAL_01</span><span aria-hidden="true">[ &lt;/&gt; ]</span></div>
-            <SignalPortrait />
+            <PortraitReveal src={portrait} label={t.hero.portraitLabel} />
             <div className="signal-bottom"><span>{t.hero.visualCaption}</span><span aria-hidden="true">01 — ∞</span></div>
           </div>
           <div className="hero-visual-note">

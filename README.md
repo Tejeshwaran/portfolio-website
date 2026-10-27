@@ -11,15 +11,15 @@ Use Node.js 20.19+ or 22.12+ (required by the installed Vite version). Run npm i
 - src/components/ — page sections and navigation
 - src/i18n/translations.js — all English and German interface copy
 - src/index.css — layout, visual system, responsive rules, and motion preferences
-- src/assets/ — Pillo icon and retained legacy images (unused by Signal)
+- src/assets/ — Pillo and Unterwegs logos, portrait cutout, and retained legacy images
 - src/hooks/ — lightweight scroll reveals and reduced-motion handling
 - public/ — résumé and site icon
 
 The Vite base path is set to /portfolio-website/ for GitHub Pages. If deployed at a different path, update base in vite.config.js.
 
-The visual direction is Signal: charcoal, warm orange, and a code-drawn dotted hero illustration. The existing React, Vite, Tailwind, and Lucide stack is unchanged.
+The visual direction is Signal: charcoal, warm orange, and a portrait with a cursor-following dotted hacker reveal. Pointer movement paints a short fading trail; keyboard focus reveals the whole illustration. Touch devices retain the portrait, and reduced-motion preferences use a stationary spotlight without a trail. The existing React, Vite, Tailwind, and Lucide stack is unchanged.
 
-Pillo is the only featured project. Its description is based on the current Windows source and is marked in development. Add public demo or repository links only when verified URLs are available.
+Pillo and Unterwegs are featured in matching project cards with their original logos and English/German copy. Their descriptions are based on the current local source and both are marked in development. Unterwegs is the GermanTeach project: a German learning app with a growing 3D village, 175 A1–B2 lessons, and speaking practice. Add public demo or repository links only when verified URLs are available.
 
 Scroll reveals and the gentle hero movement use native browser APIs, with no animation dependency. They respect reduced-motion settings, retain native scrolling, and leave content visible if animation support is unavailable.
 
