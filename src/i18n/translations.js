@@ -1,3 +1,5 @@
+import { analysisProjects } from "./analysisProjects.js";
+
 export const translations = {
   en: {
     nav: {
@@ -39,14 +41,31 @@ export const translations = {
     },
     projects: {
       kicker: "Selected projects",
-      title: "Built for everyday progress.",
-      intro: "From voice-powered work to a living world for learning German.",
+      title: "Two paths. One curiosity.",
+      intro: "AI-powered tools that help people do more. Data projects that turn information into insight. Choose a path to explore.",
+      chooseTrack: "Choose an area",
+      chooseProject: "Choose a project",
+      allAreas: "All areas",
+      selectedProject: "Selected project",
+      projectDetails: "Project description",
+      backToMenu: "Back to menu",
+      trackLabel: "Project areas",
+      projectCount: "projects",
+      viewing: "Currently exploring",
+      explore: "Explore projects",
+      illustrationLabel: "Workflow illustration",
+      tracks: [
+        { id: "ai", eyebrow: "Build & experiment", title: "AI Engineering", description: "Speech, language and thoughtful interfaces.", caption: "Tools for everyday progress." },
+        { id: "data", eyebrow: "Explore & understand", title: "Data Analysis", description: "Clean data. Clear metrics. Useful insights.", caption: "From raw records to a clearer picture." },
+      ],
       more: "Under the hood",
       outro: "Have a challenge in mind?",
       outroLink: "Let's discuss it",
       items: [
+        ...analysisProjects.en,
         {
           id: "pillo",
+          track: "ai",
           category: "Windows desktop app",
           title: "Pillo",
           subtitle: "Your voice, wherever you type.",
@@ -60,6 +79,7 @@ export const translations = {
         },
         {
           id: "unterwegs",
+          track: "ai",
           category: "German learning app",
           title: "Unterwegs",
           subtitle: "Learn German. Build your world.",
@@ -157,14 +177,31 @@ export const translations = {
     },
     projects: {
       kicker: "Ausgewählte Projekte",
-      title: "Ideen, die weiterbringen.",
-      intro: "Von Sprache im Arbeitsalltag bis zum Deutschlernen in einer lebendigen 3D-Welt.",
+      title: "Zwei Wege. Eine Neugier.",
+      intro: "KI-Anwendungen, die den Alltag erleichtern. Datenprojekte, die Informationen verständlich machen. Wähle einen Bereich und entdecke meine Arbeit.",
+      chooseTrack: "Bereich wählen",
+      chooseProject: "Projekt wählen",
+      allAreas: "Alle Bereiche",
+      selectedProject: "Ausgewähltes Projekt",
+      projectDetails: "Projektbeschreibung",
+      backToMenu: "Zurück zum Menü",
+      trackLabel: "Projektbereiche",
+      projectCount: "Projekte",
+      viewing: "Aktuell ausgewählt",
+      explore: "Projekte entdecken",
+      illustrationLabel: "Illustration des Workflows",
+      tracks: [
+        { id: "ai", eyebrow: "Entwickeln & experimentieren", title: "AI Engineering", description: "Sprache, Spracherkennung und durchdachte Oberflächen.", caption: "Werkzeuge, die den Alltag erleichtern." },
+        { id: "data", eyebrow: "Entdecken & verstehen", title: "Datenanalyse", description: "Saubere Daten. Klare Kennzahlen. Neue Erkenntnisse.", caption: "Von Rohdaten zu einem klaren Bild." },
+      ],
       more: "Ein Blick in die Technik",
       outro: "Du hast eine Idee?",
       outroLink: "Lass uns sprechen",
       items: [
+        ...analysisProjects.de,
         {
           id: "pillo",
+          track: "ai",
           category: "Windows-Desktop-App",
           title: "Pillo",
           subtitle: "Deine Stimme. Dort, wo du schreibst.",
@@ -178,6 +215,7 @@ export const translations = {
         },
         {
           id: "unterwegs",
+          track: "ai",
           category: "Deutschlern-App",
           title: "Unterwegs",
           subtitle: "Deutsch lernen. Deine Welt aufbauen.",
